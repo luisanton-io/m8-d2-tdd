@@ -4,9 +4,9 @@ import ProductModel from "./model.js"
 const productsRouter = express.Router()
 
 productsRouter.get('/', async (req, res) => {
-    const products = [];
+    const products = await ProductModel.find()
 
-    res.status(200).send({ products })
+    res.status(200).send(products)
 })
 
 productsRouter.get('/:id', async (req, res) => {
